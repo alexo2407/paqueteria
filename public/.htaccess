@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /apppaquetes/public/
+
+# Si la solicitud no es para un archivo existente...
+RewriteCond %{REQUEST_FILENAME} !-f
+# ...y si no es para un directorio existente...
+RewriteCond %{REQUEST_FILENAME} !-d
+# Redirige la solicitud a index.php pasando la URL solicitada como parámetro 'url'
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
